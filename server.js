@@ -1,10 +1,12 @@
 const express = require('express')
 const rootRouter = require('./routes');
+const cors = require('cors');
 // const bodyParser = require('body-parser');
 
 const app = express();
 const port = 3002;
 
+app.use(cors());
 app.use(express.json());
 
 app.use('/', rootRouter);
