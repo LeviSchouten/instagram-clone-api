@@ -10,9 +10,11 @@ router.post('/', async (req, res) => {
   const hash = await bcrypt.hash(password, 10);
 
   db('users').insert({name, email})
-    .then(console.log);
+    .then(console.log)
+    .catch(console.error);
   db('login').insert({email, hash})
-    .then(console.log);
+    .then(console.log)
+    .catch(console.error);
   res.end('registered');
 })
 

@@ -12,8 +12,12 @@ router.post('/', async (req, res) => {
     const [{ hash }] = response;
     bcrypt.compare(password, hash, (err, result) => {
       if (result) return res.send('logged in!');
-      res.send('invalid email or password...');
+      res.send('invalid password...');
     });
+  })
+  .catch(err => {
+    console.error(err);
+    res.send('invalid email address');
   })
 })
 
