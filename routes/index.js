@@ -8,4 +8,8 @@ const router = express.Router();
 router.use('/register', registerRouter);
 router.use('/login', loginRouter);
 
+router.get('/', (req, res) => {
+  res.send('server working!');
+})
+
 module.exports = router;
