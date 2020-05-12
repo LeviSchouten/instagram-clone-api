@@ -2,7 +2,7 @@ const express = require('express')
 const rootRouter = require('./routes');
 const cors = require('cors');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 
@@ -13,4 +13,6 @@ app.use('/', rootRouter);
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
+if (process.env.NODE_ENV === 'production') {
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
+}
