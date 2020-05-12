@@ -13,3 +13,5 @@ app.use(express.json());
 app.use('/', rootRouter);
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
