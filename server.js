@@ -1,7 +1,8 @@
 const express = require('express')
 const rootRouter = require('./routes');
 const cors = require('cors');
-// const bodyParser = require('body-parser');
+
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 const port = 3002;
@@ -11,4 +12,4 @@ app.use(express.json());
 
 app.use('/', rootRouter);
 
-app.listen(port, () => console.log(`Listening on port ${port}`))
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
