@@ -7,6 +7,8 @@ const router = express.Router();
 router.post("/", async (req, res) => {
   const { email, password } = req.body;
 
+  console.log(req.get("host"));
+
   db("login")
     .join("users", "users.email", "=", "login.email")
     .where("login.email", "=", email)
@@ -17,7 +19,15 @@ router.post("/", async (req, res) => {
         if (err) return res.json({ message: "wrong password" });
 
         res
-          .cookie("user", { id, name }, { maxAge: 900000, httpOnly: false })
+          .cookie(
+            "user",
+            { id, name },
+            {
+              maxAge: 900000,
+              httpOnly: false,
+              domain: "https://instagram-clone-levi-frontend.herokuapp.com/"
+            }
+          )
           .json({ message: "logged in" });
       });
     })
