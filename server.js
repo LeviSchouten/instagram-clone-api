@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://instagram-clone-levi-frontend.herokuapp.com/",
+    origin: /^https:\/\/instagram-clone-levi-frontend\.herokuapp\.com/,
     credentials: "include"
   })
 );
