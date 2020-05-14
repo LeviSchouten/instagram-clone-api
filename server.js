@@ -7,12 +7,7 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 
-app.use(
-  cors({
-    origin: /^https:\/\/instagram-clone-levi-frontend\.herokuapp\.com/,
-    credentials: "include"
-  })
-);
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.set("trust proxy", 1);
